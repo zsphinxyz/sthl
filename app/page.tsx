@@ -1,5 +1,5 @@
 'use client'
-import {motion} from 'framer-motion'
+import {motion, animate, delay} from 'framer-motion'
 
 import magic from '@/assets/magic.png';
 import color from '@/assets/color.png';
@@ -11,12 +11,13 @@ import json from '@/assets/json.png';
 import figma from '@/assets/figma.png';
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const CardHover = {
-  enter: {scaleY: 1},
-  leave: {scaleY: 0.2}
+  init: {opacity:0, scaleY:0.2, x:-200},
+  enter: {opacity:1, scaleY:1, x:0,}
 }
+
 
 export default function Home() {
   const projects = [
@@ -78,46 +79,47 @@ export default function Home() {
       img: figma
     },
   ]
+
   return (
-    <main className="flex gap-5 h-full justify-center flex-wrap w-[70%]">
+    <main className="w-full">
+
+      <section className='flex gap-5 h-full justify-center flex-wrap w-[70%] mx-auto'> 
       {
         projects.map(i => (
           <motion.a 
             key={i.id} href={i.link} target="blank"
-            initial={ {opacity:0, scale:0.1, x:-200} }
-            animate={ {opacity:1, scale:1, x:0} }
+            variants={CardHover}
+            initial="init"
+            animate="enter"
+            whileTap={{scale:0.9}}
             transition={{
-              duration: 0.8,
-              ease: [0, 0.71, 0.2, 1.01]
+              delay: i.id * 0.15,
+              duration: 0.7,
+              type: 'spring'
             }}
             >
-            <motion.div 
-              className="text-2xl group min-w-[300px] relative min-h-[200px] bg-[#2f2f2f] p-5 overflow-hidden object-cover rounded-xl shadow-md shadow-stone-900 hover:bg-[#3a3a3a] border-b-stone-900 hover:border-b-green-500 border-b-2 transition flex items-center justify-center"
-              variants={CardHover}
-            >
-                <div className=' h-full absolute lef-0 top-0 overflow-hidden'>
-                  <Image src={i.img} alt={i.text} className='h-full object-cover saturate-[0.5] group-hover:saturate-100'/>
-                </div>
 
-                {/* Overlay  */}
-                <motion.div 
-                  className='w-full h-full bg-gray-900/60 absolute z-1'
-                  initial={ {scaleY: 0.2} }
-                  animate='leave'
-                  whileHover='enter'
-                >
-                </motion.div>
+              <motion.div 
+                className="text-2xl group min-w-[300px] relative min-h-[200px] bg-[#2f2f2f] p-5 overflow-hidden object-cover rounded-xl shadow-md shadow-stone-900 hover:bg-[#3a3a3a] border-b-stone-900 hover:border-b-green-500 border-b-2 transition flex items-center justify-center"
+                style={{}}
+              >
+                  <div className=' h-full absolute lef-0 top-0 overflow-hidden group'>
+                    <Image src={i.img} alt={i.text} className='h-full object-cover saturate-[0.5] group-hover:scale-110 transition duration-200'/>
+                  </div>
 
+                  {/* Overlay */}
+                  <motion.div className="absolute inset-0 w-full h-full bg-black/60" />
 
-                <motion.p className="leading-0 font-bold text-[#ddd] drop-shadow-2xl group-hover:text-green-200" style={{fontSize: i.size+'%'}}>
-                  {i.text}
-                </motion.p>
+                  <motion.p className="font-bold text-[#ccc] drop-shadow-2xl group-hover:text-green-200" style={{fontSize: i.size+'%'}}>
+                    {i.text}
+                  </motion.p>
 
-            </motion.div>
+              </motion.div>
 
           </motion.a>
         ))
-      }
+      } 
+      </section>
     </main>
   )
 }

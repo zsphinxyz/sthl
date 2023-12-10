@@ -9,6 +9,7 @@ import med from '@/assets/med.png';
 import quiz from '@/assets/quiz.png';
 import json from '@/assets/json.png';
 import figma from '@/assets/figma.png';
+import portfolio from '@/assets/portfolio.png';
 
 import Image from 'next/image'
 import { useEffect } from 'react';
@@ -21,6 +22,13 @@ const CardHover = {
 
 export default function Home() {
   const projects = [
+    {
+      id:9,
+      link:'https://zsphinxyz.vercel.app',
+      text:'Portfolio',
+      size:100,
+      img: portfolio
+    },
     {
       id:1,
       link:'https://21magic.vercel.app',
@@ -83,7 +91,7 @@ export default function Home() {
   return (
     <main className="w-full">
 
-      <section className='flex gap-5 h-full justify-center flex-wrap w-[70%] mx-auto'> 
+      <section className='flex gap-5 h-full justify-center flex-wrap w-[90%] max-w-[1440px] mx-auto'> 
       {
         projects.map(i => (
           <motion.a 

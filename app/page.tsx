@@ -10,9 +10,9 @@ import quiz from '@/assets/quiz.png';
 import json from '@/assets/json.png';
 import figma from '@/assets/figma.png';
 import portfolio from '@/assets/portfolio.png';
+import ztempa from '@/assets/ztempa.png';
 
 import Image from 'next/image'
-import { useEffect } from 'react';
 
 const CardHover = {
   init: {opacity:0, scaleY:0.2, x:-200},
@@ -23,96 +23,98 @@ const CardHover = {
 export default function Home() {
   const projects = [
     {
-      id:9,
       link:'https://zsphinxyz.vercel.app',
       text:'Portfolio',
       size:100,
       img: portfolio
     },
     {
-      id:1,
       link:'https://21magic.vercel.app',
       text:'Magic',
       size:100,
       img: magic
 
+    },    
+    {
+      link:'https://ztempa.vercel.app/',
+      text:'Content Posting App',
+      size:100,
+      img: ztempa
     },
     {
-      id:2,
-      link:'https://fitwaygym.vercel.app',
-      text:'Gym',
-      size:90,
-      img: gym
-    },
-    {
-      id:3,
       link:'https://meddusa.vercel.app',
       text:'Med',
       size:90,
       img: med
     },
     {
-      id:4,
-      link:'https://sdec78451.vercel.app',
-      text:'Table',
-      size:100,
-      img: list
-    },
-    {
-      id:5,
-      link:'https://quiz.zsphinx.repl.co/',
-      text:'Quiz',
-      size:70,
-      img: quiz
-    },
-    {
-      id:6,
-      link:'https://color.zsphinx.repl.co/',
-      text:'Color',
-      size:50,
-      img: color
-    },
-    {
-      id:7,
-      link:'https://randomuser.zsphinx.repl.co/',
-      text:'JSON',
-      size:50,
-      img: json
-    },
-    {
-      id:8,
       link:'https://figmaprojects.vercel.app/',
       text:'Projects from Figma',
       size:100,
       img: figma
     },
+    {
+      link:'https://fitwaygym.vercel.app',
+      text:'Gym',
+      size:90,
+      img: gym
+    },
+    // {
+    //   link:'https://sdec78451.vercel.app',
+    //   text:'Table',
+    //   size:100,
+    //   img: list
+    // },
+    // {
+    //   link:'https://color.zsphinx.repl.co/',
+    //   text:'Color',
+    //   size:50,
+    //   img: color
+    // },
+    // {
+    //   link:'https://randomuser.zsphinx.repl.co/',
+    //   text:'JSON',
+    //   size:50,
+    //   img: json
+    // },
+    // {
+    //   link:'https://quiz.zsphinx.repl.co/',
+    //   text:'Quiz',
+    //   size:70,
+    //   img: quiz
+    // },
+
   ]
 
-  return (
+  return ( 
     <main className="w-full">
+
+      <div className='absolute left-1/2 top-1/2 w-1/5 h-1/5 max-w-2xl max-h-[672px] bg-white opacity-20 -translate-x-1/2 -translate-y-1/2 blur-[100px]' />
+      <div className='absolute -left-16 top-50 w-1/5 h-1/5 max-w-2xl max-h-[672px] bg-blue-300 opacity-25 -translate-x-1/2 -translate-y-1/2 blur-[50px] rounded-full' />
+      <div className='absolute right-10 bottom-10 w-[10%] h-[10%] max-w-2xl max-h-[672px] bg-blue-500 opacity-10 -translate-x-1/2 -translate-y-1/2 blur-[50px] rounded-full' />
 
       <section className='flex gap-5 h-full justify-center flex-wrap w-[90%] max-w-[1440px] mx-auto'> 
       {
-        projects.map(i => (
+        projects.map( (i, index) => (
           <motion.a 
-            key={i.id} href={i.link} target="blank"
+            key={index} href={i.link} target="blank"
             variants={CardHover}
             initial="init"
             animate="enter"
             whileTap={{scale:0.9}}
             transition={{
-              delay: i.id * 0.15,
+              delay: index * 0.15,
               duration: 0.7,
               type: 'spring'
             }}
             >
 
               <motion.div 
-                className="text-2xl group min-w-[300px] relative min-h-[200px] bg-[#2f2f2f] p-5 overflow-hidden object-cover rounded-xl shadow-md shadow-stone-900 hover:bg-[#3a3a3a] border-b-stone-900 hover:border-b-green-500 border-b-2 transition flex items-center justify-center"
+                className="text-2xl group min-w-[300px] relative min-h-[200px] bg-[#2f2f2f] p-5 overflow-hidden object-cover rounded-xl [box-shadow:0_0_10px_0_#ccffcc22] hover:bg-[#3a3a3a] border-b-stone-900 hover:border-b-green-500  border-b-2 transition flex items-center justify-center"
                 style={{}}
               >
                   <div className=' h-full absolute lef-0 top-0 overflow-hidden group'>
-                    <Image src={i.img} alt={i.text} className='h-full object-cover saturate-[0.5] group-hover:scale-110 transition duration-200'/>
+                    <Image src={i.img} alt={i.text} priority className='h-full object-cover saturate-[0.5] group-hover:scale-110 transition duration-200'/>
                   </div>
 
                   {/* Overlay */}
@@ -127,6 +129,7 @@ export default function Home() {
           </motion.a>
         ))
       } 
+
       </section>
     </main>
   )

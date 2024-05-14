@@ -11,6 +11,7 @@ import json from '@/assets/json.png';
 import figma from '@/assets/figma.png';
 import portfolio from '@/assets/portfolio.png';
 import ztempa from '@/assets/ztempa.png';
+import api from '@/assets/api.png';
 
 import Image from 'next/image'
 
@@ -58,6 +59,12 @@ export default function Home() {
       text:'Gym',
       size:90,
       img: gym
+    },
+    {
+      link:'https://zapiz.vercel.app',
+      text:'API',
+      size:140,
+      img: api
     },
     // {
     //   link:'https://sdec78451.vercel.app',

@@ -7,7 +7,6 @@ const projects = [
     'zfirst-z-sphinxs-projects.vercel.app',
     'zauthtest.vercel.app',
     'velolev.vercel.app',
-
 ]
 
 export default function page() {

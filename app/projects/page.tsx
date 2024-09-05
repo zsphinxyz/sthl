@@ -2,7 +2,7 @@
 const projects = [
     'zjpp.vercel.app',
     'sdec78451.vercel.app/list',
-    'soe-thiha-lwin-resume.vercel.app',
+    // 'soe-thiha-lwin-resume.vercel.app',
     'z3d.vercel.app',
     'zfirst-z-sphinxs-projects.vercel.app',
     'zauthtest.vercel.app',

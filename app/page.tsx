@@ -2,17 +2,19 @@
 import {motion, animate, delay} from 'framer-motion';
 
 import magic from '@/assets/magic.png';
-import color from '@/assets/color.png';
+// import color from '@/assets/color.png';
 import gym from '@/assets/gym.png';
-import list from '@/assets/list.png';
+// import list from '@/assets/list.png';
 import med from '@/assets/med.png';
-import quiz from '@/assets/quiz.png';
-import json from '@/assets/json.png';
+// import quiz from '@/assets/quiz.png';
+// import json from '@/assets/json.png';
 import figma from '@/assets/figma.png';
 import portfolio from '@/assets/portfolio.png';
 import ztempa from '@/assets/ztempa.png';
 import api from '@/assets/api.png';
 import zmorse from '@/assets/zmorse.png';
+import b3d from '@/assets/b3d.png'
+import zapps from '@/assets/zapps.png'
 
 import Image from 'next/image'
 
@@ -29,6 +31,24 @@ export default function Home() {
       text:'Portfolio',
       size:100,
       img: portfolio
+    },
+    {
+      link:'https://b3d.vercel.app',
+      text:'Blender 3D',
+      size: 90,
+      img: b3d
+    },
+    {
+      link:'https://zapps.vercel.app',
+      text:'React Apps',
+      size: 90,
+      img: zapps
+    },
+    {
+      link:'https://zmorse.vercel.app',
+      text:'Learn Morse Code',
+      size: 90,
+      img: zmorse
     },
     {
       link:'https://21magic.vercel.app',
@@ -67,12 +87,7 @@ export default function Home() {
       size:140,
       img: api
     },
-    {
-      link:'https://zmorse.vercel.app',
-      text:'Learn Morse Code',
-      size: 90,
-      img: zmorse
-    },
+    
     // {
     //   link:'https://sdec78451.vercel.app',
     //   text:'Table',

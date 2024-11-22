@@ -15,6 +15,7 @@ import api from '@/assets/api.png';
 import zmorse from '@/assets/zmorse.png';
 import b3d from '@/assets/b3d.png'
 import zapps from '@/assets/zapps.png'
+import krist from '@/assets/krist.png'
 
 import Image from 'next/image'
 
@@ -56,7 +57,15 @@ export default function Home() {
       size:100,
       img: magic
 
-    },    
+    },
+    {
+      link:'https://zkrist.vercel.app',
+      text:'E-Commerce',
+      size:100,
+      img: krist,
+      inprogress: true
+
+    }, 
     {
       link:'https://ztempa.vercel.app/',
       text:'Content Posting App',
@@ -152,6 +161,13 @@ export default function Home() {
                   <motion.p className="font-bold text-[#ccc] drop-shadow-2xl group-hover:text-green-200" style={{fontSize: i.size+'%'}}>
                     {i.text}
                   </motion.p>
+
+                  {
+                    i.inprogress &&
+                    <div title='Work In Progress' className="group/dot w-4 hover:w-24 overflow-hidden px-0.5 h-4 text-xs bg-yellow-400 absolute top-1 left-1 rounded-full transition-all">
+                        <p className="hidden group-hover/dot:block text-nowrap">Work in Progress</p>
+                    </div>
+                  }
 
               </motion.div>
 
